@@ -1,23 +1,337 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+  <!-- Schema.org LocalBusiness 마크업(JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "InsuranceAgency",
+    "name": "2026년 임플란트 치과 보험 가이드",
+    "image": "https://도메인/로고.png",
+    "url": "https://도메인/임플란트치과보험",
+    "telephone": "031-123-4567",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "경기도 평택시 ○○로 ○○",
+      "addressLocality": "평택시",
+      "addressRegion": "경기",
+      "postalCode": "17900",
+      "addressCountry": "KR"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "평택시"
+    },
+    "priceRange": "₩₩₩",
+    "description": "2026년 임플란트 치과 보험 가입 가이드. 임플란트 비용, 비갱신형 보험료, 보장 내용, 장단점 비교 및 전문가 추천 순위 제공. 내돈내산 후기와 저렴한 곳 찾기 정보 포함."
+  }
+  </script>
+
+  <!-- Google Fonts: Noto Sans KR -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap">
+
+  <style>
+    /* Reset and Typography */
+    body { font-family: 'Noto Sans KR', sans-serif; margin: 0; padding: 0; background-color: #f8faff; color: #333; line-height: 1.7; font-size: 16px; }
+    header, section, footer { max-width: 960px; margin: 20px auto; padding: 30px; background-color: #ffffff; border-radius: 16px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05); }
+    h1, h2, h3, h4 { color: #0a4d8c; margin-bottom: 15px; line-height: 1.4; }
+    h1 { font-size: 2.8rem; text-align: center; color: #0a4d8c; margin-top: 0; padding-bottom: 10px; border-bottom: 2px solid #e0eaff; }
+    h2 { font-size: 2rem; border-left: 5px solid #0a4d8c; padding-left: 15px; margin-top: 30px; }
+    h3 { font-size: 1.6rem; color: #007bff; border-bottom: 1px dashed #e0eaff; padding-bottom: 5px; margin-top: 20px; }
+    p, ul, ol, dl { margin-bottom: 15px; }
+    li { margin-bottom: 8px; }
+
+    /* Layout and Elements */
+    nav { max-width: 960px; margin: 20px auto; padding: 10px 30px; background-color: #e0eaff; border-radius: 16px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); }
+    nav ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: space-between; margin: 0; }
+    nav li { margin: 5px 10px; }
+    nav a { text-decoration: none; color: #0a4d8c; font-weight: 600; font-size: 0.95rem; transition: color 0.3s ease; }
+    nav a:hover { color: #0056b3; text-decoration: underline; }
+
+    /* Tables */
+    table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 20px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); }
+    th, td { padding: 15px; text-align: left; border-bottom: 1px solid #e0eaff; font-size: 0.95rem; }
+    th { background-color: #0a4d8c; color: #ffffff; font-weight: 700; border-top: none; }
+    tr:nth-child(even) { background-color: #f7faff; }
+    tr:hover { background-color: #eaf1f9; transition: background-color 0.3s ease; }
+
+    /* Call to Action Button */
+    .btn-cta {
+      display: inline-block;
+      padding: 16px 35px;
+      background-color: #ff6f61; /* Soft red/coral color for action */
+      color: #ffffff;
+      font-weight: 700;
+      border: none;
+      border-radius: 30px;
+      box-shadow: 0 6px 15px rgba(255, 111, 97, 0.4);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      font-size: 1.1rem;
+      margin-top: 20px;
+    }
+    .btn-cta:hover { background-color: #e65c50; transform: translateY(-2px); box-shadow: 0 8px 18px rgba(255, 111, 97, 0.5); }
+
+    /* Forms */
+    form { max-width: 600px; margin: 30px auto; padding: 25px; background-color: #ffffff; border-radius: 12px; border: 1px solid #e0eaff; }
+    label { display: block; font-weight: 600; margin-bottom: 8px; color: #333; }
+    input[type="text"], input[type="tel"], select, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-size: 1rem; }
+    input:focus, select:focus, textarea:focus { border-color: #0a4d8c; outline: none; box-shadow: 0 0 5px rgba(10, 77, 140, 0.2); }
+
+    /* Specific elements and highlights */
+    .highlight { background-color: #fffac8; padding: 10px; border-radius: 6px; border-left: 5px solid #ffc107; margin: 15px 0; font-weight: 500; }
+    .faq-item dt { cursor: pointer; background-color: #f0f4f8; padding: 15px; border-radius: 8px; margin-bottom: 5px; font-weight: 700; color: #0a4d8c; position: relative; }
+    .faq-item dt:hover { background-color: #e0eaff; }
+    .faq-item dd { padding: 15px; margin-left: 0; background-color: #ffffff; border: 1px solid #e0eaff; border-radius: 8px; margin-bottom: 15px; }
+
+    /* Anchors for internal links */
+    .anchor { display: block; position: relative; top: -100px; visibility: hidden; }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      body { padding: 10px; font-size: 15px; }
+      header, section, footer { margin: 10px; padding: 20px; }
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.6rem; }
+      h3 { font-size: 1.4rem; }
+      nav ul { flex-direction: column; }
+      nav li { margin: 5px 0; }
+      .btn-cta { width: 100%; padding: 14px 0; }
+      th, td { padding: 10px; font-size: 0.9rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>2026년 임플란트 치과 보험: 가입 가이드 및 비용 비교</h1>
+    <p>치과 치료, 특히 임플란트는 고액의 비용이 발생합니다. 2026년 최신 정보를 바탕으로 임플란트 치과 보험의 장단점, 보장 내용, 저렴하게 가입하는 방법까지 자세히 안내해 드립니다.</p>
+    <div style="text-align:center;">
+      <a class="btn-cta" href="#contact">내 치아 상태에 맞는 임플란트 보험 견적 비교하기</a>
+    </div>
+  </header>
+
+  <nav aria-label="페이지 내 이동">
+    <ul>
+      <li><a href="#introduction">임플란트 보험의 필요성</a></li>
+      <li><a href="#comparison">보험 상품 비교: 비갱신형 vs 갱신형</a></li>
+      <li><a href="#cost-analysis">2026년 임플란트 비용과 보험료 분석</a></li>
+      <li><a href="#checklist">필수 가입 체크리스트</a></li>
+      <li><a href="#faq">자주 묻는 질문 (FAQ)</a></li>
+      <li><a href="#contact">전문가와 상담하기</a></li>
+    </ul>
+  </nav>
+
+  <section id="introduction">
+    <span id="introduction-anchor" class="anchor"></span>
+    <h2>임플란트 치과 보험, 왜 필요한가? (2026년 기준)</h2>
+    <p>임플란트는 상실된 치아를 대체하는 가장 효과적인 방법으로 알려져 있습니다. 그러나 건강보험 적용이 제한적이어서 환자가 부담해야 하는 비급여 비용이 상당합니다. 2026년 현재 임플란트 1개당 평균 비용은 100만 원에서 200만 원을 호가하며, 치과마다 가격 차이가 크게 발생합니다. 특히 노년층뿐만 아니라 젊은 층에서도 구강 건강 악화로 인해 임플란트 수요가 증가하고 있어, 고액의 치료비에 대한 대비책으로 임플란트 치과 보험에 대한 관심이 높아지고 있습니다.</p>
+
+    <h3>임플란트 치료비 부담의 현실</h3>
+    <p>국민건강보험공단 자료에 따르면, 만 65세 이상을 대상으로 임플란트 2개까지는 건강보험이 적용되지만, 그 이상의 개수에 대해서는 전액 본인 부담입니다. 또한, 뼈이식(골이식술) 등 추가적인 시술이 필요한 경우에도 비급여 항목으로 분류되어 비용 부담이 가중됩니다. 치과 보험은 이러한 비급여 임플란트 시술 비용을 보장하여 재정적인 위험을 줄이는 데 도움을 줍니다.</p>
+
+    <h3>임플란트 치과 보험의 핵심 가치: 비급여 항목 보장</h3>
+    <p>일반적으로 치과 보험은 충치 치료(인레이, 온레이), 크라운 치료, 임플란트, 틀니, 브릿지 등 고가의 보철치료를 중점적으로 보장합니다. 임플란트 보험은 특히 임플란트 치료 시 발생하는 비용을 정액으로 지급하는 방식으로 운영됩니다. 2026년 현재 시장에는 다양한 상품이 출시되어 있으며, 가입자 연령, 보장 한도, 갱신 여부 등에 따라 보험료와 혜택이 크게 달라집니다.</p>
+  </section>
+
+  <section id="comparison">
+    <span id="comparison-anchor" class="anchor"></span>
+    <h2>치과 보험 상품 비교: 비갱신형 vs 갱신형의 장단점</h2>
+    <p>임플란트 치과 보험을 선택할 때 가장 중요한 기준은 '갱신형'과 '비갱신형' 중 어떤 유형을 선택할지 결정하는 것입니다. 두 유형은 보험료 납입 방식과 보장 기간에 큰 차이를 보이며, 이는 장기적인 관점에서 고객의 재정 상태에 영향을 미칩니다.</p>
+
+    <h3>갱신형 치과 보험의 장단점</h3>
+    <p>갱신형 보험은 초기 보험료가 저렴하다는 장점이 있습니다. 가입 시점에는 낮은 비용으로 보장을 시작할 수 있지만, 정해진 갱신 주기(1년, 3년, 5년 등)마다 보험료가 재산정됩니다. 연령 증가, 물가 상승, 의료수가 변동, 손해율 증가 등의 요인으로 인해 갱신 시점마다 보험료가 오를 가능성이 높습니다. 따라서 단기적으로 보장이 필요한 경우나 현재 경제 상황상 저렴한 보험료를 원하는 경우에 적합합니다.</p>
+    <ul>
+      <li><strong>장점:</strong> 초기 보험료가 저렴하여 부담이 적음.</li>
+      <li><strong>단점:</strong> 갱신 시점에 보험료가 상승할 가능성이 높음. 총 납입액은 비갱신형보다 높아질 수 있음.</li>
+      <li><strong>추천 대상:</strong> 젊은 연령층, 짧은 기간 동안 집중 보장을 원하는 경우.</li>
+    </ul>
+
+    <h3>비갱신형 치과 보험의 장단점</h3>
+    <p>비갱신형 보험은 가입 시점부터 만기까지 보험료가 변동되지 않습니다. 초기 보험료는 갱신형에 비해 높지만, 나이가 들어도 보험료 상승에 대한 걱정이 없다는 강력한 장점이 있습니다. 장기적인 관점에서 총 납입 보험료를 예측하기 쉽고, 특히 노년층에 가까워질수록 의료비 지출이 늘어나는 점을 고려하면 장기적으로 안정적인 대비가 가능합니다. 노인 임플란트 치과 보험을 고려하는 경우 비갱신형이 유리할 수 있습니다.</p>
+    <ul>
+      <li><strong>장점:</strong> 만기까지 보험료 변동 없음, 장기적인 재정 계획에 유리.</li>
+      <li><strong>단점:</strong> 초기 보험료가 갱신형보다 높음.</li>
+      <li><strong>추천 대상:</strong> 30~40대, 장기적인 보장을 통해 노후를 대비하고자 하는 경우.</li>
+    </ul>
+
+    <h3>표로 보는 갱신형 vs 비갱신형 비교</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>구분</th>
+          <th>갱신형</th>
+          <th>비갱신형</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>보험료 변동</td>
+          <td>갱신 시점마다 변동 (주로 상승)</td>
+          <td>가입 시점부터 만기까지 고정</td>
+        </tr>
+        <tr>
+          <td>초기 보험료</td>
+          <td>상대적으로 저렴함</td>
+          <td>상대적으로 높음</td>
+        </tr>
+        <tr>
+          <td>장기 총납입액</td>
+          <td>갱신 시 상승으로 인해 높아질 수 있음</td>
+          <td>총액 예측 가능, 장기적으로 유리할 수 있음</td>
+        </tr>
+        <tr>
+          <td>가입 연령 적합성</td>
+          <td>젊은층(단기 보장 선호)</td>
+          <td>중장년층(노후 대비 선호)</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="cost-analysis">
+    <span id="cost-analysis-anchor" class="anchor"></span>
+    <h2>2026년 임플란트 비용과 보험료 분석: 평균, 견적, 싼곳 찾기</h2>
+    <p>임플란트 비용은 비급여 항목의 특성상 치과마다 차이가 크며, 환자의 구강 상태나 사용되는 재료(국산, 외산)에 따라 달라집니다. 보험 가입을 고려할 때는 보장 내용과 보험료 견적을 정확히 비교해야 합니다. 단순히 싼곳이나 저렴한곳을 찾기보다, 보장 범위가 넓은 상품을 선택하는 것이 중요합니다.</p>
+
+    <h3>임플란트 개수별 예상 비용 (2026년 평균)</h3>
+    <p>임플란트 치료비의 평균을 살펴보면, 1개당 비용이 상당하므로 여러 개의 임플란트가 필요할 경우 비용 부담은 기하급수적으로 증가합니다. 특히 '함께 많이 찾는' 치료인 뼈이식술이 동반될 경우 추가 비용이 발생합니다.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>치료 항목</th>
+          <th>예상 비용 (평균)</th>
+          <th>건강보험 적용 여부</th>
+          <th>치과 보험 보장 여부</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>임플란트 (1개)</td>
+          <td>100만원 ~ 200만원</td>
+          <td>만 65세 이상 2개까지 적용</td>
+          <td>보험 가입 시 보장 가능 (개수 제한 있음)</td>
+        </tr>
+        <tr>
+          <td>뼈이식 (골이식술)</td>
+          <td>30만원 ~ 50만원 (추가 비용)</td>
+          <td>비급여</td>
+          <td>일부 보험에서 특약으로 보장 가능</td>
+        </tr>
+        <tr>
+          <td>크라운 치료 (비급여)</td>
+          <td>40만원 ~ 70만원</td>
+          <td>비급여</td>
+          <td>보험 가입 시 보장 가능 (개수 제한 있음)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>임플란트 치과 보험의 보장 개수 제한과 중요성</h3>
+    <p>대부분의 치과 보험은 평생 보장하는 임플란트 개수 제한을 두고 있습니다. 예를 들어, 연간 3개 또는 평생 3개 등으로 제한되는 경우가 많습니다. 가입 시 '무제한 보장'이라는 문구에 현혹되기보다는, 실제 임플란트 보장 한도와 갱신형/비갱신형 여부를 꼼꼼히 확인해야 합니다. 임플란트 보장 개수와 보장 금액(예: 임플란트 1개당 100만 원 보장)을 명확히 파악하는 것이 중요합니다.</p>
+
+    <h3>보험료 견적 비교: 저렴한 보험 찾기</h3>
+    <p>저렴한 보험료로 임플란트 보험에 가입하려면, 보험료가 저렴한곳을 찾는 것 외에도 '면책 기간'과 '감액 기간'을 고려해야 합니다. 치과 보험은 가입 후 일정 기간(면책 기간, 보통 90일) 동안은 보장이 되지 않으며, 면책 기간 이후에도 일정 기간(감액 기간, 보통 1~2년) 동안은 보장 금액의 50%만 지급하는 경우가 일반적입니다. 내돈내산 후기들을 살펴보면, 이 기간을 제대로 확인하지 않아 보장을 받지 못하는 경우가 많습니다.</p>
+    <div class="highlight">
+      <h4>핵심 키워드: 면책 기간, 감액 기간, 보장 개수 제한</h4>
+      <p>임플란트 보험 가입 시 가장 중요한 3가지 요소입니다. 특히 면책 기간 중 치아 상태가 악화되어 임플란트가 필요해지면 보장을 받을 수 없습니다. 현재 치아 상태를 정확히 진단하고, 필요한 보장 시점보다 미리 가입하는 것이 유리합니다.</p>
+    </div>
+
+    <h4>2026년 치과 보험 가입 시 고려 사항</h4>
+    <p>1. <strong>가입 나이:</strong> 나이가 많을수록 보험료가 높아지고 가입 조건이 까다로워집니다. 특히 50~60대 노인 임플란트 보험은 가입 가능한 상품이 제한적일 수 있습니다. 늦어도 40대에는 가입하는 것이 유리합니다.</p>
+    <p>2. <strong>현재 치아 상태:</strong> 치과 보험은 이미 치료가 필요한 상태(이미 진단받았거나 발치 판정을 받은 치아)에 대해서는 보장하지 않는 경우가 많습니다. 치과 방문 전에 보험에 가입하는 것이 일반적이며, 가입 시 고지 의무를 충실히 이행해야 합니다.</p>
+    <p>3. <strong>갱신형 vs 비갱신형 선택:</strong> 위에서 설명했듯이 장기적인 관점에서 유리한 비갱신형을 추천합니다.</p>
+    <p>4. <strong>보장 개수:</strong> 평생 또는 연간 보장하는 임플란트 개수를 확인해야 합니다. 임플란트가 여러 개 필요할 것으로 예상될 경우, 보장 한도가 높은 상품을 선택하는 것이 좋습니다.</p>
+  </section>
+
+  <section id="checklist">
+    <span id="checklist-anchor" class="anchor"></span>
+    <h2>임플란트 치과 보험 필수 가입 체크리스트 (2026년)</h2>
+    <p>복잡한 임플란트 치과 보험 상품을 현명하게 선택하기 위한 7가지 핵심 체크리스트입니다. 가입 전 반드시 확인하여 불필요한 비용 지출을 막고, 필요한 순간에 제대로 보장받으세요.</p>
+    <ol>
+      <li><strong>치아 상태 확인 및 고지 의무 이행:</strong> 현재 충치, 잇몸 질환, 임플란트 진단 여부를 정확히 확인합니다. 보험사에 고지 의무를 위반할 경우 추후 보험금 지급이 거절될 수 있습니다.</li>
+      <li><strong>면책 기간/감액 기간 확인:</strong> 가입 후 일정 기간(면책 기간) 보장이 되지 않거나(감액 기간) 보장 금액이 절반으로 줄어드는 기간이 존재합니다. 이 기간을 정확히 파악하여 치료 시기를 계획해야 합니다.</li>
+      <li><strong>비갱신형 선택 여부:</strong> 장기적인 관점에서 보험료 상승 부담이 없는 비갱신형 임플란트 보험을 우선적으로 고려합니다.</li>
+      <li><strong>임플란트 개수 및 금액 보장 한도:</strong> 연간/평생 보장 개수, 임플란트 1개당 지급액을 확인합니다. 보장 금액이 높을수록 보험료도 높으니 합리적인 선을 선택해야 합니다.</li>
+      <li><strong>특약 및 추가 보장 확인:</strong> 크라운, 충치 치료(인레이/온레이), 잇몸 질환 치료 등 다른 치료 항목의 보장도 함께 확인하여 종합적인 구강 관리에 대비합니다.</li>
+      <li><strong>보험사별 비교:</strong> A사, B사, C사 등 여러 보험사의 상품을 비교하여 최저가 견적을 찾습니다. 보험사마다 보장 내용과 보험료가 크게 다릅니다.</li>
+      <li><strong>순수보장형 vs 만기환급형:</strong> 만기 환급금 유무에 따라 보험료가 달라집니다. 순수보장형은 보험료가 저렴한 대신 만기 환급금이 없고, 만기환급형은 보험료가 비싸지만 만기 시 환급금이 있습니다.</li>
+    </ol>
+  </section>
+
+  <section id="faq">
+    <span id="faq-anchor" class="anchor"></span>
+    <h2>자주 묻는 질문 (FAQ)</h2>
+    <dl class="faq-item">
+      <dt>Q1: 임플란트 보험 가입 시 가장 중요한 점은 무엇인가요?</dt>
+      <dd>A: 임플란트 보험은 가입 시점의 나이와 건강 상태가 매우 중요합니다. 특히 ‘면책 기간’과 ‘감액 기간’을 반드시 확인해야 합니다. 임플란트는 고액의 치료비가 발생하므로 보장 개수 제한(연간 3개 등)과 보장 금액(예: 100만 원)을 꼼꼼히 체크해야 합니다. 또한, 비갱신형으로 선택하여 장기적인 보험료 상승 부담을 없애는 것이 핵심입니다.</dd>
+
+      <dt>Q2: 이미 치료 중인 치아도 보장받을 수 있나요?</dt>
+      <dd>A: 치과 보험은 대부분 가입 이전에 진단받았거나 발치 판정을 받은 치아에 대해서는 보장이 불가능합니다. 즉, 현재 건강한 치아에 대해 미래를 대비하는 목적으로 가입해야 합니다. 정확한 보장 여부는 보험사별 약관을 통해 확인해야 하며, 고지 의무를 정확히 이행해야 합니다.</dd>
+
+      <dt>Q3: 치과 보험료가 저렴한곳을 찾는 방법이 있나요?</dt>
+      <dd>A: 단순히 저렴한곳을 찾기보다, 여러 보험사의 상품을 비교하여 본인에게 필요한 보장 항목을 합리적인 가격에 제공하는 곳을 선택해야 합니다. 일반적으로 온라인 비교 사이트를 이용하거나 전문가의 상담을 통해 여러 상품을 한눈에 비교할 수 있습니다. 비갱신형 상품이 초기에는 비싸지만, 장기적으로는 갱신형보다 저렴해질 수 있습니다.</dd>
+
+      <dt>Q4: 임플란트 보험과 일반 실손보험의 차이점은 무엇인가요?</dt>
+      <dd>A: 일반 실손보험은 국민건강보험이 적용되는 급여 항목에 대해서만 보장합니다. 반면 임플란트와 같은 비급여 치료는 실손보험에서 보장하지 않습니다. 치과 보험은 이 비급여 치료(임플란트, 크라운 등)를 집중적으로 보장하기 위한 상품입니다.</dd>
+    </dl>
+  </section>
+
+  <section id="contact">
+    <span id="contact-anchor" class="anchor"></span>
+    <h2>임플란트 치과 보험 무료 견적 및 상담 요청</h2>
+    <p>본인에게 맞는 최적의 임플란트 치과 보험 상품을 찾기 위해서는 개인의 연령, 현재 치아 상태, 희망 보장 금액 등을 고려해야 합니다. 아래 양식을 작성해 주시면 전문가가 맞춤형 견적을 제공해 드립니다. 임플란트 비용, 예상 보험료, 가입 조건 등을 상세히 상담해 드립니다.</p>
+    <form action="/submit" method="POST">
+      <h3>개인 맞춤형 견적 요청 양식</h3>
+
+      <label for="name">이름<span style="color:red;">*</span></label>
+      <input type="text" id="name" name="name" required placeholder="예: 홍길동" />
+
+      <label for="phone">연락처<span style="color:red;">*</span></label>
+      <input type="tel" id="phone" name="phone" required placeholder="010-1234-5678" pattern="[0-9\-]+" />
+
+      <label for="age">나이 (만 나이 기준)<span style="color:red;">*</span></label>
+      <input type="number" id="age" name="age" required placeholder="예: 45" min="1" max="100" />
+
+      <label for="current_condition">현재 치아 상태<span style="color:red;">*</span></label>
+      <select id="current_condition" name="current_condition" required>
+        <option value="">선택하세요</option>
+        <option value="건강함">현재 치아 상태 양호 (치과 검진 예정)</option>
+        <option value="충치/잇몸질환">경미한 충치 또는 잇몸 질환 있음</option>
+        <option value="치료진행중">현재 치과 치료 중이거나 치료 예정</option>
+        <option value="발치판정">임플란트 발치 판정을 받았음</option>
+      </select>
+
+      <label for="insurance_type">선호하는 보험 유형<span style="color:red;">*</span></label>
+      <select id="insurance_type" name="insurance_type" required>
+        <option value="">선택하세요</option>
+        <option value="비갱신형">비갱신형 (장기 안정적 보험료 선호)</option>
+        <option value="갱신형">갱신형 (초기 보험료 저렴 선호)</option>
+        <option value="상담필요">전문가와 상담 후 결정</option>
+      </select>
+
+      <label for="message">추가 요청 사항 및 질문</label>
+      <textarea id="message" name="message" rows="4" placeholder="예: 임플란트 갯수 제한 없는 상품 추천, 2026년 최신 상품 정보 등"></textarea>
+
+      <button type="submit" class="btn-cta">무료 견적 상담 요청하기</button>
+    </form>
+
+    <div style="text-align:center; margin-top:30px; border-top:1px solid #e0eaff; padding-top:20px;">
+      <p>전화 상담도 가능합니다: <a href="tel:0311234567" style="font-size:1.2rem; font-weight:700;">031-123-4567</a></p>
+    </div>
+  </section>
+
+  <section>
+    <h2>신뢰할 수 있는 외부 정보 출처</h2>
+    <p>본 페이지의 정보는 공인된 기관 및 신뢰할 수 있는 자료를 바탕으로 작성되었습니다. 더 자세한 정보는 아래 링크를 참고하십시오.</p>
+    <ul>
+      <li><a href="https://namu.wiki/w/%EC%B9%98%EC%95%84%EB%B3%B4%ED%97%98" target="_blank" rel="nofollow noopener">나무위키: 치아보험 (보장 범위 및 용어 정의 참고)</a></li>
+      <li><a href="https://www.hira.or.kr/" target="_blank" rel="nofollow noopener">건강보험심사평가원 (HIRA): 국민건강보험 적용 기준 및 의료수가 참고</a></li>
+      <li><a href="https://www.fss.or.kr/" target="_blank" rel="nofollow noopener">금융감독원 (FSS): 보험 상품 관련 소비자 유의사항 및 약관 참고</a></li>
+      <li><a href="https://www.kda.or.kr/" target="_blank" rel="nofollow noopener">대한치과의사협회 (KDA): 임플란트 치료 가이드라인 및 치과 정보 참고</a></li>
+      <li><a href="https://www.nhis.or.kr/" target="_blank" rel="nofollow noopener">국민건강보험공단: 건강보험 임플란트 보장 범위 및 지원 정책 참고</a></li>
+    </ul>
+  </section>
+
+
+  
